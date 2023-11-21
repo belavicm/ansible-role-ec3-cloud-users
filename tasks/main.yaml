@@ -24,4 +24,5 @@
   include: "{{sge_type_of_node}}.yaml"
 
 - name: Start ec3-cloud-users script
-  shell: /usr/libexec/ec3-cloud-users/sync-feed.py; /usr/libexec/ec3-cloud-users/create-accounts.py
+  ignore_errors: yes
+  shell: /usr/libexec/ec3-cloud-users/sync-feed.py; /usr/libexec/ec3-cloud-users/users-csv.py -f /storage/users.csv ; /usr/libexec/ec3-cloud-users/create-accounts.py
